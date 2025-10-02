@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Buttons
   layers:
   - Default
   - TransparentFX
@@ -15,10 +16,10 @@ TagManager:
   - Place 1
   - Place 2
   - 
+  - GroundPlace 1
+  - GroundPlace 2
   - 
-  - 
-  - 
-  - 
+  - Ground
   - 
   - 
   - 
