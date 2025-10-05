@@ -219,8 +219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  followSpeed: 18
-  offset: {x: 0, y: 0.5, z: 1.5}
+  followSpeed: 20
+  offset: {x: 0, y: 0.5, z: 2}
   DragTrigUse: 0
 --- !u!1 &6830264464567272169
 GameObject:
