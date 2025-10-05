@@ -7,7 +7,7 @@ public class MouseLock : MonoBehaviour
     [SerializeField] private Transform playerBody;
 
 
-    [SerializeField] bool _isUse = false;
+    public bool _isUse = false;
 
     private float xRotation = 0f;
 
