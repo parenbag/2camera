@@ -76,16 +76,14 @@ public class CodeLockLogic : MonoBehaviour
         {
             if (obj == null) return;
 
-            float currentAngle = obj.localEulerAngles.z; // Теперь по оси Z
+            float currentAngle = obj.localEulerAngles.z;
             float targetRotation = targetRotations[index];
 
-            // Если вращение активно, плавно поворачиваем
             if (isRotating && index == CodeKey)
             {
                 float newAngle = Mathf.MoveTowardsAngle(currentAngle, targetRotation, rotationSpeed * Time.deltaTime);
-                obj.localEulerAngles = new Vector3(0, 0, newAngle); // Вращение по оси Z
+                obj.localEulerAngles = new Vector3(0, 0, newAngle); 
 
-                // Проверяем достижение цели
                 if (Mathf.Abs(Mathf.DeltaAngle(newAngle, targetRotation)) < 0.1f)
                 {
                     isRotating = false;
@@ -93,15 +91,11 @@ public class CodeLockLogic : MonoBehaviour
             }
             else
             {
-                // Поддерживаем текущую позицию для неактивных объектов
                 obj.localEulerAngles = new Vector3(0, 0, targetRotation);
             }
         }
 
         // -+ 36
         
-
-
-
     }
 }

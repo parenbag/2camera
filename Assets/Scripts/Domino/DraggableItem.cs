@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class DraggableItem : MonoBehaviour
 {
-    [SerializeField] Transform player; // Ссылка на персонажа
+    [SerializeField] Transform player; 
     //[SerializeField] float grabDistance = 2f; // Дистанция захвата
-    [SerializeField] float followSpeed = 18f; // Скорость следования
-    [SerializeField] Vector3 offset = new Vector3(0, 0.5f, 1.5f); // Смещение от персонажа
+    [SerializeField] float followSpeed = 18f; 
+    [SerializeField] Vector3 offset = new Vector3(0, 0.5f, 1.5f); 
 
     private bool isGrabbed = false;
     private Rigidbody rb;
@@ -20,7 +20,6 @@ public class DraggableItem : MonoBehaviour
 
     void Update()
     {
-        // Проверяем нажатие клавиши и дистанцию
         if (Input.GetKeyDown(KeyCode.E) && DragTrigUse== true/* && Vector3.Distance(transform.position, player.position) <= grabDistance */ )
         {
             isGrabbed = !isGrabbed;
@@ -33,8 +32,6 @@ public class DraggableItem : MonoBehaviour
                 rb.isKinematic = false;
             }
         }
-
-        // Движение
         if (isGrabbed)
         {
             Vector3 targetPosition = player.position + player.forward * offset.z + player.up * offset.y;
