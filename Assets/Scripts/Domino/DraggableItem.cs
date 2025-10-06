@@ -22,18 +22,18 @@ public class DraggableItem : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && DragTrigUse == true /* && _mouseLock._isUse == false */ /* && Vector3.Distance(transform.position, player.position) <= grabDistance */ )
+        if (Input.GetKeyDown(KeyCode.E) && DragTrigUse == true /* && _mouseLock._isUse_Camera == false */ /* && Vector3.Distance(transform.position, player.position) <= grabDistance */ )
         {
             isGrabbed = !isGrabbed;
             if (isGrabbed && rb != null)
             {
                 rb.isKinematic = true;
-                _mouseLock._isUse = true;
+                _mouseLock._isUse_Camera = true;
             }
             else if (rb != null)
             {
                 rb.isKinematic = false;
-                _mouseLock._isUse = false;
+                _mouseLock._isUse_Camera = false;
             }
         }
         if (isGrabbed)
