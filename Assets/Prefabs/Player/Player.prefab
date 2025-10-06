@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 780760410332502480}
   - component: {fileID: 1680478835581083459}
+  - component: {fileID: 4723337359560064950}
   m_Layer: 3
   m_Name: Camerapos 3th PP (1)
   m_TagString: Untagged
@@ -48,6 +49,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSebsitivity: 200
   playerBody: {fileID: 8503005388297583516}
+  _isUse_Camera: 0
+--- !u!95 &4723337359560064950
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364304167824732891}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 052b277f8e74e334fb4ece2698a185f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &534668255093298817
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +376,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 11264
+  IsUse_Movement: 0
   isRunning: 0
 --- !u!1 &1342498753015668652
 GameObject:
@@ -1004,6 +1029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSebsitivity: 200
   playerBody: {fileID: 8503005388297583516}
+  _isUse_Camera: 0
 --- !u!1 &5450883517547363600
 GameObject:
   m_ObjectHideFlags: 0

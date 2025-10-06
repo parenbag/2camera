@@ -19,6 +19,8 @@ public class Movement : MonoBehaviour
 
     //public ScriptAnim _scriptAnim;
 
+    public bool IsUse_Movement;
+
     public bool isRunning;
 
     void Update()
@@ -67,6 +69,11 @@ public class Movement : MonoBehaviour
             speed = speed / 1.3f;
         }
 
+        if (IsUse_Movement)
+        {
+            speed = 0;
+        }
+
 
         Vector3 move = transform.right * x + transform.forward * z;
 
@@ -82,4 +89,6 @@ public class Movement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
     }
+
+   
 }

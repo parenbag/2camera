@@ -7,7 +7,7 @@ public class MouseLock : MonoBehaviour
     [SerializeField] private Transform playerBody;
 
 
-    [SerializeField] bool _isUse = false;
+    public bool _isUse_Camera = false;
 
     private float xRotation = 0f;
 
@@ -27,9 +27,10 @@ public class MouseLock : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        if (!_isUse)
+        if (!_isUse_Camera)
         {
             playerBody.Rotate(Vector3.up * mouseX);
         }
     }
+    
 }

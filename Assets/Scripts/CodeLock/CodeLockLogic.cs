@@ -3,7 +3,7 @@ using TMPro;
 
 public class CodeLockLogic : MonoBehaviour
 {
-    private int[] Code = {0, 1, 2};
+    private int[] Code = {0, 0, 0};
 
     private int CodeKey = 1;
 
@@ -16,22 +16,60 @@ public class CodeLockLogic : MonoBehaviour
     [SerializeField] private float rotationSpeed = 90f;
     private float[] targetRotations = { 0f, 0f, 0f };
     private bool isRotating = false;   
+    public bool isUseCodeLock = false;
+
+    [SerializeField] ChestOpen _chestOpen;
+    int a;
+    int b;
+    int c;
+
+    bool ready;
+
+    [SerializeField] TMP_Text _a;
+    [SerializeField] TMP_Text _b;
+    [SerializeField] TMP_Text _c;
+
+    void Start()
+    {
+        a = Random.Range(0, 9);
+        b = Random.Range(0, 9);
+        c = Random.Range(0, 9);
+
+        _a.text = a.ToString();
+        _b.text = b.ToString();
+        _c.text = c.ToString();
+    }
+
+
 
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isRotating)
+        if (isUseCodeLock)
         {
-            Code[CodeKey] -= 1;
-            targetRotations[CodeKey] -= 36f;
-            isRotating = true;
+            // Прокрут 
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && !isRotating)
+            {
+                Code[CodeKey] += 1;
+                targetRotations[CodeKey] -= 36f;
+                isRotating = true;
 
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !isRotating)
-        {
-            Code[CodeKey] += 1;
-            targetRotations[CodeKey] += 36f;
-            isRotating = true;
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow) && !isRotating)
+            {
+                Code[CodeKey] -= 1;
+                targetRotations[CodeKey] += 36f;
+                isRotating = true;
+            }
+
+            //Вверх Вниз
+            if (Input.GetKeyDown(KeyCode.UpArrow) && CodeKey != 0)
+            {
+                CodeKey -= 1;
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow) && CodeKey != 2)
+            {
+                CodeKey += 1;
+            }
         }
 
         if (Code[CodeKey] <= -1)
@@ -43,36 +81,21 @@ public class CodeLockLogic : MonoBehaviour
             Code[CodeKey] = 0;
         }
 
-
-        
-        if (Input.GetKeyDown(KeyCode.UpArrow) && CodeKey != 0 )
-        {
-            CodeKey -= 1;
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.DownArrow) && CodeKey != 2)
-        {
-            CodeKey += 1;   
-        }
-
-        
-
         switch (CodeKey)
         {
             case 0:
-                RotateManger(CodeOneCount,0);
+                RotateManager(CodeOneCount,0);
                 break;
             case 1:
-                RotateManger(CodeTwoCount,1);
+                RotateManager(CodeTwoCount,1);
                 break;
             case 2:
-                RotateManger(CodeTreeCount,2);
+                RotateManager(CodeTreeCount,2);
                 break;
 
         }
 
-        void RotateManger(Transform obj, int index)
+        void RotateManager(Transform obj, int index)
         {
             if (obj == null) return;
 
@@ -95,7 +118,16 @@ public class CodeLockLogic : MonoBehaviour
             }
         }
 
+
+        if (a == Code[0] && b == Code[1] && c == Code[2] && !ready)
+        {
+            _chestOpen.OpenChest();
+            ready = true;
+        }
+        
+
         // -+ 36
         
     }
+
 }
